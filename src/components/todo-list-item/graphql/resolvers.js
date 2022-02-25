@@ -1,4 +1,4 @@
-const { TodoListItemController } = require('../controller')
+const { TodoListItemController } = require('@/components/todo-list-item/controller')
 const { NotFoundError } = require('@/lib/errors')
 
 class TodoListItemResolver {
@@ -11,7 +11,7 @@ class TodoListItemResolver {
           TodoListItemController.find(where, { skip, limit }),
         todoListItem: async (_, { where }) => {
           const todoList = await TodoListItemController.findOne(where)
-          if (!todoList) throw new NotFoundError('TodoList not found')
+          if (!todoList) throw new NotFoundError('TodoList Item not found')
 
           return todoList
         }
@@ -22,8 +22,7 @@ class TodoListItemResolver {
         deleteTodoListItem: (_, { id }) => TodoListItemController.deleteById(id).then(() => true)
       },
       TodoListItem: {
-        todoList: async _ => await TodoListItemController.getItem(_.id)
-        // items => (parent) => TodoList.fetchRelated('items')
+        todoList: async _ => await TodoListItemController.getTodoList(_.id)
       }
     }
   }

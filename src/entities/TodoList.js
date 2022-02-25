@@ -4,14 +4,13 @@ class TodoList extends BaseModel {
   static schema = {
     ...super.schema,
     title: 'string|required',
-    owner_id: 'integer|required'
-    // owner: User
+    ownerId: 'integer|required'
     // if field not set in schema it won't be passed to DB
   }
 
   static get relationMappings () {
-    const { User } = require('./User')
-    const { TodoListItem } = require('./TodoListItem')
+    const { User } = require('@/entities/User')
+    const { TodoListItem } = require('@/entities/TodoListItem')
 
     return {
       owner: {

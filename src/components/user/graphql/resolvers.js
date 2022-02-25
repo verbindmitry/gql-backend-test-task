@@ -1,4 +1,4 @@
-const { UserController } = require('../controller')
+const { UserController } = require('@/components/user/controller')
 const { NotFoundError } = require('@/lib/errors')
 
 class UserResolver {
@@ -23,7 +23,6 @@ class UserResolver {
       },
       User: {
         todoLists: async _ => await UserController.getTodoLists(_.id)
-        // items => (parent) => User.fetchRelated('items')
       }
     }
   }

@@ -4,12 +4,12 @@ class TodoListItem extends BaseModel {
   static schema = {
     ...super.schema,
     text: 'string|required',
-    todo_list_id: 'integer|required'
+    todoListId: 'integer|required'
     // if field not set in schema it won't be passed to DB
   }
 
   static get relationMappings () {
-    const { TodoList } = require('./TodoList')
+    const { TodoList } = require('@/entities/TodoList')
     return {
       todoLists: {
         relation: BaseModel.BelongsToOneRelation,

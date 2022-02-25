@@ -7,8 +7,7 @@ class UserController extends BaseController {
   }
 
   static async getTodoLists (id) {
-    const todoLists = await User.relatedQuery('todoLists').for(id)
-    return todoLists
+    return await User.relatedQuery('todoLists').for(id)
   }
 }
 

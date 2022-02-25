@@ -1,4 +1,4 @@
-const { TodoListController } = require('../controller')
+const { TodoListController } = require('@/components/todo-list/controller')
 const { NotFoundError } = require('@/lib/errors')
 
 class TodoListResolver {
@@ -23,8 +23,7 @@ class TodoListResolver {
       },
       TodoList: {
         owner: async _ => await TodoListController.getOwner(_.id),
-        items: async _ => await TodoListController.getItem(_.id)
-        // items => (parent) => TodoList.fetchRelated('items')
+        items: async _ => await TodoListController.getItems(_.id)
       }
     }
   }

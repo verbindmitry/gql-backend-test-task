@@ -1,28 +1,27 @@
 type User {
   id: Int!
-  firstNamr: String!
-  lastNamr: String!
+  firstName: String!
+  lastName: String!
   todoLists: [TodoList]
   createdAt: DateTime!
   updatedAt: DateTime!
 }
 
 input UserCreateInput {
-  firstNamr: String!
-  lastNamr: String!
+  firstName: String!
+  lastName: String!
   todoLists: [TodoListCreateInput]
 }
 
 input UserUpdateInput {
-  firstNamr: String
-  lastNamr: String
+  firstName: String
+  lastName: String
 }
 
 input UserWhereInput {
   id: Int
-  firstNamr: String
-  lastNamr: String
-  
+  firstName: String
+  lastName: String
   createdAt: DateTime
   updatedAt: DateTime
 }

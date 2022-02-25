@@ -6,9 +6,8 @@ class TodoListItemController extends BaseController {
     return TodoListItem
   }
 
-  static async getItem (id) {
-    const todoList = await TodoListItem.relatedQuery('todoLists').for(id).first()
-    return todoList
+  static async getTodoList (id) {
+    return await TodoListItem.relatedQuery('todoLists').for(id).first()
   }
 }
 

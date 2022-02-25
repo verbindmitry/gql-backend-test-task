@@ -1,7 +1,7 @@
 type TodoListItem {
   id: Int!
   text: String!
-  todo_list_id: Int!
+  todoListId: Int!
   createdAt: DateTime!
   updatedAt: DateTime!
   todoList: TodoList
@@ -9,18 +9,18 @@ type TodoListItem {
 
 input TodoListItemCreateInput {
   text: String!
-  todo_list_id: Int!
+  todoListId: Int!
 }
 
 input TodoListItemUpdateInput {
   text: String
-  todo_list_id: Int
+  todoListId: Int
 }
 
 input TodoListItemWhereInput {
   id: Int
   text: String
-  todo_list_id: Int
+  todoListId: Int
   createdAt: DateTime
   updatedAt: DateTime
 }
