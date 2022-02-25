@@ -16,7 +16,7 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "mutation {\n    createTodoList(\n        data: {\n            title: \"Tasks\"\n    }) {\n        id\n        title\n        createdAt\n        updatedAt\n    }\n}",
+								"query": "mutation {\n    createTodoList(\n        data: {\n            title: \"Tasks\"\n            owner_Id: 1\n    }) {\n        id\n        title\n        owner_Id\n        createdAt\n        updatedAt\n    }\n}",
 								"variables": ""
 							}
 						},
@@ -40,7 +40,7 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "{\n    todoList (where: {id: 1}) {\n        id\n        title\n        createdAt\n        updatedAt\n    }\n}",
+								"query": "{\n    todoList (where: {id: 1}) {\n        id\n        title\n            owner_Id: 1\n        createdAt\n        updatedAt\n    }\n}",
 								"variables": ""
 							}
 						},
@@ -64,7 +64,7 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "mutation {\n    updateTodoList (\n        id: 1\n        data: {\n            title: \"Tasks2\"\n        }\n    ) {\n        id\n        title\n        createdAt\n        updatedAt\n    }\n}",
+								"query": "mutation {\n    updateTodoList (\n        id: 1\n        data: {\n            title: \"Tasks2\"\n            owner_Id: 1\n        }\n    ) {\n        id\n        title\n        owner_id\n        createdAt\n        updatedAt\n    }\n}",
 								"variables": ""
 							}
 						},
@@ -112,7 +112,7 @@
 						"body": {
 							"mode": "graphql",
 							"graphql": {
-								"query": "{\n    todoLists  {\n            id\n            title\n            createdAt\n            updatedAt\n        }\n}",
+								"query": "{\n    todoLists  {\n            id\n            title\n            owner_id\n            createdAt\n            updatedAt\n        }\n}",
 								"variables": ""
 							}
 						},
@@ -137,6 +137,304 @@
 							"mode": "graphql",
 							"graphql": {
 								"query": "{\n    countTodoLists\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{server}}/graphql",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "todo list item",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\n    createTodoListItem(\n        data: {\n            text: \"Task1\"\n            todo_list_id: 1\n    }) {\n        id\n        text\n        todo_list_id\n        createdAt\n        updatedAt\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{server}}/graphql",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\n    todoListItem (where: {id: 1}) {\n        id\n        text\n        todo_list_id\n        createdAt\n        updatedAt\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{server}}/graphql",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\n    updateTodoListItem (\n        id: 1\n        data: {\n            text: \"Task2\"\n            todo_list_id: 1\n        }\n    ) {\n        id\n        text\n       todo_list_id\n        createdAt\n        updatedAt\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{server}}/graphql",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\n    deleteTodoListItem (id: 2)\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{server}}/graphql",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\n    todoListItems  {\n            id\n            text\n            todo_list_id\n             createdAt\n            updatedAt\n        }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{server}}/graphql",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "count",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\n    countTodoListItems\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{server}}/graphql",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\n    createUser(\n        data: {\n            firstNamr: \"Ivan\"\n            lastNamr: \"Ivanov\"\n    }) {\n        id\n        firstNamr\n        lastNamr\n        createdAt\n        updatedAt\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{server}}/graphql",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\n    user (where: {id: 1}) {\n        id\n        firstNamr\n        lastNamr\n        createdAt\n        updatedAt\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{server}}/graphql",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\n    updateUser (\n        id: 1\n        data: {\n            firstNamr: \"Ivan\"\n            lastNamr: \"Ivanov\"\n        }\n    ) {\n        id\n        firstNamr\n       lastNamr\n        createdAt\n        updatedAt\n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{server}}/graphql",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation {\n    deleteUser (id: 2)\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{server}}/graphql",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\n    users  {\n            id\n            firstNamr\n            lastNamr\n            createdAt\n            updatedAt\n        }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{server}}/graphql",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"graphql"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "count",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\n    countUsers\n}",
 								"variables": ""
 							}
 						},
