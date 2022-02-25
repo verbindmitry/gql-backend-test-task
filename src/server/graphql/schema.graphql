@@ -5,6 +5,12 @@ type Query {
   countTodoLists(where: TodoListWhereInput): Int!
   todoList(where: TodoListWhereInput!): TodoList!
   todoLists(where: TodoListWhereInput, skip: Int, limit: Int): [TodoList]!
+
+  # user
+  countUsers(where: UserWhereInput): Int!
+  user(where: UserWhereInput!): User!
+  users(where: UserWhereInput, skip: Int, limit: Int): [User]!
+
 }
 
 type Mutation {
@@ -12,4 +18,9 @@ type Mutation {
   createTodoList(data: TodoListCreateInput!): TodoList!
   updateTodoList(id: Int!, data: TodoListUpdateInput!): TodoList!
   deleteTodoList(id: Int!): Boolean!
+
+  # user
+  createUser(data: UserCreateInput!): User!
+  updateUser(id: Int!, data: UserUpdateInput!): User!
+  deleteUser(id: Int!): Boolean!
 }

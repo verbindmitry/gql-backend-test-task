@@ -17,11 +17,12 @@ class TodoListResolver {
         }
       },
       Mutation: {
-        createTodoList: async (_, { data, authorId }) => TodoListController.insert({ ...data, authorId }),
+        createTodoList: async (_, { data }) => TodoListController.insert({ ...data }),
         updateTodoList: (_, { id, data }) => TodoListController.update(id, data),
         deleteTodoList: (_, { id }) => TodoListController.deleteById(id).then(() => true)
       },
       TodoList: {
+        owner: async _ => await TodoListController.getOwner(_.id)
         // items => (parent) => TodoList.fetchRelated('items')
       }
     }

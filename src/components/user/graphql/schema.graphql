@@ -1,0 +1,28 @@
+type User {
+  id: Int!
+  firstNamr: String!
+  lastNamr: String!
+  todoLists: [TodoList]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input UserCreateInput {
+  firstNamr: String!
+  lastNamr: String!
+  todoLists: [TodoListCreateInput]
+}
+
+input UserUpdateInput {
+  firstNamr: String
+  lastNamr: String
+}
+
+input UserWhereInput {
+  id: Int
+  firstNamr: String
+  lastNamr: String
+  
+  createdAt: DateTime
+  updatedAt: DateTime
+}

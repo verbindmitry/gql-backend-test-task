@@ -1,21 +1,26 @@
 type TodoList {
   id: Int!
   title: String!
+  owner_id: Int!
   createdAt: DateTime!
   updatedAt: DateTime!
+  owner: User
 }
 
 input TodoListCreateInput {
   title: String!
+  owner_id: Int!
 }
 
 input TodoListUpdateInput {
   title: String
+  owner_id: Int
 }
 
 input TodoListWhereInput {
   id: Int
   title: String
+  owner_id: Int
   createdAt: DateTime
   updatedAt: DateTime
 }
