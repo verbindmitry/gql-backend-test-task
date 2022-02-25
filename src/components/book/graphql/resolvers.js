@@ -22,7 +22,8 @@ class TodoListResolver {
         deleteTodoList: (_, { id }) => TodoListController.deleteById(id).then(() => true)
       },
       TodoList: {
-        owner: async _ => await TodoListController.getOwner(_.id)
+        owner: async _ => await TodoListController.getOwner(_.id),
+        items: async _ => await TodoListController.getItem(_.id)
         // items => (parent) => TodoList.fetchRelated('items')
       }
     }

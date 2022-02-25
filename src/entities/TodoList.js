@@ -11,6 +11,8 @@ class TodoList extends BaseModel {
 
   static get relationMappings () {
     const { User } = require('./User')
+    const { TodoListItem } = require('./TodoListItem')
+
     return {
       owner: {
         relation: BaseModel.BelongsToOneRelation,
@@ -18,6 +20,14 @@ class TodoList extends BaseModel {
         join: {
           from: 'todoLists.ownerId',
           to: 'users.id'
+        }
+      },
+      todoListItems: {
+        relation: BaseModel.HasManyRelation,
+        modelClass: TodoListItem,
+        join: {
+          from: 'todoLists.id',
+          to: 'todoListItems.todoListId'
         }
       }
     }

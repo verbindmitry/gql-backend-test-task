@@ -10,6 +10,12 @@ class TodoListController extends BaseController {
     const owner = await TodoList.relatedQuery('owner').for(id).first()
     return owner
   }
+
+  static async getItem (id) {
+    const todoListItems = await TodoList.relatedQuery('todoListItems').for(id)
+    console.log(todoListItems)
+    return todoListItems
+  }
 }
 
 module.exports = {

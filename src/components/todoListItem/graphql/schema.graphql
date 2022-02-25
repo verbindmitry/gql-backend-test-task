@@ -1,0 +1,26 @@
+type TodoListItem {
+  id: Int!
+  text: String!
+  todo_list_id: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  todoList: TodoList
+}
+
+input TodoListItemCreateInput {
+  text: String!
+  todo_list_id: Int!
+}
+
+input TodoListItemUpdateInput {
+  text: String
+  todo_list_id: Int
+}
+
+input TodoListItemWhereInput {
+  id: Int
+  text: String
+  todo_list_id: Int
+  createdAt: DateTime
+  updatedAt: DateTime
+}
