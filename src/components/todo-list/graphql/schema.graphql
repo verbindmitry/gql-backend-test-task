@@ -11,7 +11,7 @@ type TodoList {
 input TodoListCreateInput {
   title: String!
   ownerId: Int!
-  todoListItems: [TodoListItemCreateInput]
+
 }
 
 input TodoListUpdateInput {

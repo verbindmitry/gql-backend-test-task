@@ -10,7 +10,7 @@ type User {
 input UserCreateInput {
   firstName: String!
   lastName: String!
-  todoLists: [TodoListCreateInput]
+
 }
 
 input UserUpdateInput {
